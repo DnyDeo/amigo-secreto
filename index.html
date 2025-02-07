@@ -21,7 +21,7 @@
             <h2 class="section-title">Digite el nombre de sus amigos</h2>
             <div class="input-wrapper">
                 <input type="text" id="amigo" class="input-name" placeholder="Escribe un nombre">
-                <button class="button-add" onclick="agregarAmigo()">Añadir</button>
+                <button class="button-add" id="miBoton" onclick="agregarAmigo()">Añadir</button>
             </div>
            
             <ul id="listaAmigos" class="name-list" aria-labelledby="listaAmigos" role="list"></ul>
@@ -36,6 +36,19 @@
         </section>
     </main>
 
+    <script>
+        document.getElementById('amigo').addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                event.preventDefault(); // Evita que se envíe el formulario
+                document.getElementById('miBoton').click(); // Simula el clic en el botón
+            }
+        });
+        document.getElementById('miBoton').addEventListener('click', function() {});
+    </script>
+    
+    
+    
     <script src="app.js" defer></script>
+
 </body>
 </html>
