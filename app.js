@@ -1,5 +1,6 @@
 let listaDeAmigos = [];
-let numeroMaximo = listaDeAmigos.length;
+let listaNumerosSorteado = [];
+let numeroMaximo = 10;
 
 function agregarAmigo() {
 
@@ -7,7 +8,7 @@ function agregarAmigo() {
 
     if (/^[A-Za-z]*$/.test(nombreDeAmigo)){
         listaDeAmigos.push(nombreDeAmigo);
-        asignarTextoElemento ('ul',`${listaDeAmigos.join('<br>')}`)
+        asignarTextoElemento ('listaAmigos',`${listaDeAmigos.join('<br>')}`)
         
     } else if (/^([0-9])*$/.test(nombreDeAmigo)){   
         alert('Ingrese un dato valido') 
@@ -20,9 +21,16 @@ function agregarAmigo() {
     return nombreDeAmigo;
 }
 
+function generarAmigoSecreto() {
+    let numeroGenerado = Math.floor(Math.random()*numeroMaximo)+1;
+    console.log(numeroGenerado);
+    asignarTextoElemento ('resultado',`${listaDeAmigos[numeroGenerado]}`)
+}
+
+generarAmigoSecreto();
 
 function asignarTextoElemento(elemento, texto){
-    let elementoHTML = document.querySelector(elemento);
+    let elementoHTML = document.getElementById(elemento);
     elementoHTML.innerHTML = texto
     return; 
 }
